@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         demoView.update(title: NSLocalizedString("app_name", comment: ""))
 
         // If swizzling has been deactivated(Info.plist -> set PhraseSDKMainBundleProxyDisabled to YES),
-        // the translation can be requested directly via Phrase SDK.
+        // the translation can be accessed directly via Phrase SDK.
         demoView.update(description: Phrase.shared.localizedString(forKey: "description_text", value: nil, table: nil))
     }
 }
