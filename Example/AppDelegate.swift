@@ -9,7 +9,7 @@ import os
 import PhraseSDK
 import UIKit
 
-private let subsystem = "com.example.AppDelegate"
+private let subsystem = "com.phrase.AppDelegate"
 private let logger = Logger(subsystem: subsystem, category: "LogMessages")
 
 @main
@@ -57,7 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if translationChanged {
                         // If a translation was used before the update was completed,
                         // the translations will only be available after restarting the app,
-                        // otherwise the new translations will be used directly.
+                        // otherwise the new translations can be used immediately.
                         logger.info("translations changed")
                     } else {
                         logger.error("translations remain unchanged")
