@@ -26,6 +26,7 @@
 		C1688B622AD68BAB0019DAA5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C1688B642AD68BAB0019DAA5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C18990512AE0069D00A7633E /* DemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoView.swift; sourceTree = "<group>"; };
+		C18990532AE0133E00A7633E /* .phrase.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .phrase.yml; sourceTree = "<group>"; };
 		C1B466FA2AD6E4D400F959C0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1B466FC2AD6E4EC00F959C0 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C1C89B342AD6BB310037BBC9 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				C1F37C9B2AD6C66800409B8A /* README.md */,
+				C18990532AE0133E00A7633E /* .phrase.yml */,
 				C1688B552AD68BAB0019DAA5 /* Example */,
 				C1688B542AD68BAB0019DAA5 /* Products */,
 			);
