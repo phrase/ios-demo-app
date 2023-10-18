@@ -1,5 +1,5 @@
 /* Name of the phrase test app */
-"app_name" = "Test App Update 1";
+"app_name" = "Demo App Phrase";
 
-"main_title" = "Eine Demo App für Phrase";
+"description_text" = "Eine Demo App für das Phrase SDK.";
 

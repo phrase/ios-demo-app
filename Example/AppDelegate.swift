@@ -36,9 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func setupPhrase() {
-        // Enables info log messages
+        // Enables info log messages (optional)
         Phrase.shared.configuration.debugMode = true
-        Phrase.shared.configuration.apiHost = .us
+        // Set a timeout for the requests against Phrase. The default timeout is 10 seconds.
+        Phrase.shared.configuration.timeout = TimeInterval(20)
+        // If needed change to US data center
+        // Phrase.shared.configuration.apiHost = .us
 
         Phrase.shared.setup(
             distributionID: "<distributionID>",
@@ -52,8 +55,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 switch result {
                 case let .success(translationChanged):
                     if translationChanged {
+                        // If a translation was used before the update was completed,
+                        // the translations will only be available after restarting the app,
+                        // otherwise the new translations will be used directly.
                         logger.info("translations changed")
-                        // trigger ui reload if needed
                     } else {
                         logger.error("translations remain unchanged")
                     }
