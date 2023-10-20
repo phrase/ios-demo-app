@@ -1,0 +1,5 @@
+/* Name of the phrase test app */
+"app_name" = "Demo App Phrase";
+
+"description_text" = "A demo app for the Phrase SDK.";
+

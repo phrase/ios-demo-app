@@ -1,0 +1,14 @@
+phrase:
+  access_token: <access_token>
+  project_id: <project_id>
+  push:
+    sources:
+    - file: ./Example/Resources/Localizables/<locale_name>.lproj/Localizable.strings
+      params:
+        file_format: strings
+  pull:
+    targets:
+    - file: ./Example/Resources/Localizables/<locale_name>.lproj/Localizable.strings
+      params:
+        file_format: strings
+        encoding: UTF-8
