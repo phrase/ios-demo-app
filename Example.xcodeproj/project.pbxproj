@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C136AAE62AD6C700009E54E9 /* PhraseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = C136AAE52AD6C700009E54E9 /* PhraseSDK */; };
+		C166D8732B57DCAD000156D4 /* SwiftUIDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166D8722B57DCAD000156D4 /* SwiftUIDemoView.swift */; };
+		C166D8752B57DD1A000156D4 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166D8742B57DD1A000156D4 /* String+Localized.swift */; };
 		C1688B572AD68BAB0019DAA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688B562AD68BAB0019DAA5 /* AppDelegate.swift */; };
 		C1688B592AD68BAB0019DAA5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688B582AD68BAB0019DAA5 /* SceneDelegate.swift */; };
 		C1688B5B2AD68BAB0019DAA5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688B5A2AD68BAB0019DAA5 /* ViewController.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C166D8722B57DCAD000156D4 /* SwiftUIDemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIDemoView.swift; sourceTree = "<group>"; };
+		C166D8742B57DD1A000156D4 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		C1688B532AD68BAB0019DAA5 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1688B562AD68BAB0019DAA5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C1688B582AD68BAB0019DAA5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C166D8712B57DC88000156D4 /* SwiftUI Example */ = {
+			isa = PBXGroup;
+			children = (
+				C166D8722B57DCAD000156D4 /* SwiftUIDemoView.swift */,
+				C166D8742B57DD1A000156D4 /* String+Localized.swift */,
+			);
+			path = "SwiftUI Example";
+			sourceTree = "<group>";
+		};
 		C1688B4A2AD68BAB0019DAA5 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +95,7 @@
 		C1B466F62AD6DF3600F959C0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C166D8712B57DC88000156D4 /* SwiftUI Example */,
 				C1B466FD2AD6F3E800F959C0 /* Localizables */,
 			);
 			path = Resources;
@@ -173,10 +187,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C166D8732B57DCAD000156D4 /* SwiftUIDemoView.swift in Sources */,
 				C1688B5B2AD68BAB0019DAA5 /* ViewController.swift in Sources */,
 				C18990522AE0069D00A7633E /* DemoView.swift in Sources */,
 				C1688B572AD68BAB0019DAA5 /* AppDelegate.swift in Sources */,
 				C1688B592AD68BAB0019DAA5 /* SceneDelegate.swift in Sources */,
+				C166D8752B57DD1A000156D4 /* String+Localized.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,7 +432,7 @@
 			repositoryURL = "https://github.com/phrase/ios-sdk";
 			requirement = {
 				kind = exactVersion;
-				version = 4.3.2;
+				version = 4.3.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -14,12 +14,18 @@ private let logger = Logger(subsystem: subsystem, category: "LogMessages")
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    private var isPreview: Bool {
+        return ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1"
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
 
-        setupPhrase()
-        updateTranslations()
+        // We don't initialize the OTA SDK in the case of previews, as these are updated very frequently.
+        if !isPreview {
+            setupPhrase()
+            updateTranslations()
+        }
 
         return true
     }
@@ -60,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                         // otherwise the new translations can be used immediately.
                         logger.info("translations changed")
                     } else {
-                        logger.error("translations remain unchanged")
+                        logger.debug("translations remain unchanged")
                     }
 
                 case let .failure(error):
@@ -68,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     case let PhraseNetworkError.connectionError(underlyingError) as PhraseNetworkError:
                         logger.error("Connection Error: \(underlyingError.localizedDescription)")
                     case let PhraseNetworkError.responseStatusInvalid(code, message) as PhraseNetworkError:
-                        debugPrint("Response Status Invalid: \(code) \(message)")
+                        logger.error("Response Status Invalid: \(code) \(message)")
                     default:
                         logger.error("An error occured while updating the translations \(error.last?.localizedDescription ?? "")")
                     }
