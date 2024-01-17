@@ -11,6 +11,7 @@ import UIKit
 class DemoView: UIView {
     private var titleLabel: UILabel!
     private var descriptionLabel: UILabel!
+    private var button: UIButton!
 
     init() {
         super.init(frame: .zero)
@@ -29,12 +30,15 @@ class DemoView: UIView {
     private func setupLayout() {
         titleLabel = UILabel()
         descriptionLabel = UILabel()
+        button = UIButton(type: .system)
 
         addSubview(titleLabel)
         addSubview(descriptionLabel)
+        addSubview(button)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
@@ -43,7 +47,10 @@ class DemoView: UIView {
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor)
+            button.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 30),
+            button.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            button.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
+            button.bottomAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -52,6 +59,10 @@ class DemoView: UIView {
         titleLabel.textColor = .black
         descriptionLabel.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         descriptionLabel.textColor = .black
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
+        button.backgroundColor = .gray
+        button.layer.cornerRadius = 4
     }
 
     func update(title: String) {
@@ -61,4 +72,24 @@ class DemoView: UIView {
     func update(description: String) {
         descriptionLabel.text = description
     }
+
+    func update(buttonText: String) {
+        button.setTitle(buttonText, for: .normal)
+    }
+
+    func setButton(action: @escaping () -> Void) {
+        button.addAction(.init(handler: { _ in
+            action()
+        }), for: .touchUpInside)
+    }
+}
+
+@available(iOS 17.0, *)
+#Preview {
+    let demoView = DemoView()
+    demoView.update(title: "Title")
+    demoView.update(description: "Description")
+    demoView.update(buttonText: "Button")
+
+    return demoView
 }
