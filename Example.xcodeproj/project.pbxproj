@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C136AAE62AD6C700009E54E9 /* PhraseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = C136AAE52AD6C700009E54E9 /* PhraseSDK */; };
+		C11D689C2D036A030097C32E /* PhraseSDK in Frameworks */ = {isa = PBXBuildFile; productRef = C11D689B2D036A030097C32E /* PhraseSDK */; };
 		C166D8732B57DCAD000156D4 /* SwiftUIDemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166D8722B57DCAD000156D4 /* SwiftUIDemoView.swift */; };
 		C166D8752B57DD1A000156D4 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = C166D8742B57DD1A000156D4 /* String+Localized.swift */; };
 		C1688B572AD68BAB0019DAA5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1688B562AD68BAB0019DAA5 /* AppDelegate.swift */; };
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C136AAE62AD6C700009E54E9 /* PhraseSDK in Frameworks */,
+				C11D689C2D036A030097C32E /* PhraseSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +126,7 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				C136AAE52AD6C700009E54E9 /* PhraseSDK */,
+				C11D689B2D036A030097C32E /* PhraseSDK */,
 			);
 			productName = Example;
 			productReference = C1688B532AD68BAB0019DAA5 /* Example.app */;
@@ -158,7 +158,7 @@
 			);
 			mainGroup = C1688B4A2AD68BAB0019DAA5;
 			packageReferences = (
-				C136AAE42AD6C700009E54E9 /* XCRemoteSwiftPackageReference "ios-sdk" */,
+				C11D689A2D036A030097C32E /* XCRemoteSwiftPackageReference "ios-sdk" */,
 			);
 			productRefGroup = C1688B542AD68BAB0019DAA5 /* Products */;
 			projectDirPath = "";
@@ -280,6 +280,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -336,6 +337,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -427,20 +429,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C136AAE42AD6C700009E54E9 /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
+		C11D689A2D036A030097C32E /* XCRemoteSwiftPackageReference "ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/phrase/ios-sdk";
 			requirement = {
 				kind = exactVersion;
-				version = 4.3.4;
+				version = 4.4.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C136AAE52AD6C700009E54E9 /* PhraseSDK */ = {
+		C11D689B2D036A030097C32E /* PhraseSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C136AAE42AD6C700009E54E9 /* XCRemoteSwiftPackageReference "ios-sdk" */;
+			package = C11D689A2D036A030097C32E /* XCRemoteSwiftPackageReference "ios-sdk" */;
 			productName = PhraseSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If needed change to US data center
         // Phrase.shared.configuration.apiHost = .us
 
+        // Important: Finish the configuration before calling setup
         Phrase.shared.setup(
             distributionID: "<distributionID>",
             environmentSecret: "<environmentSecret>"
@@ -56,40 +57,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func updateTranslations() {
-        do {
-            try Phrase.shared.updateTranslation { result in
-                switch result {
-                case let .success(translationChanged):
-                    if translationChanged {
-                        // If a translation was used before the update was completed,
-                        // the translations will only be available after restarting the app,
-                        // otherwise the new translations can be used immediately.
-                        logger.info("translations changed")
-                    } else {
-                        logger.debug("translations remain unchanged")
-                    }
-
-                case let .failure(error):
-                    switch error.last {
-                    case let PhraseNetworkError.connectionError(underlyingError) as PhraseNetworkError:
-                        logger.error("Connection Error: \(underlyingError.localizedDescription)")
-                    case let PhraseNetworkError.responseStatusInvalid(code, message) as PhraseNetworkError:
-                        logger.error("Response Status Invalid: \(code) \(message)")
-                    default:
-                        logger.error("An error occured while updating the translations \(error.last?.localizedDescription ?? "")")
-                    }
+        Task {
+            do throws(PhraseUpdateError) {
+                let updated = try await Phrase.shared.updateTranslation()
+                if updated {
+                    // If a translation was used before the update was completed,
+                    // the translations will only be available after restarting the app,
+                    // otherwise the new translations can be used immediately.
+                    logger.info("translations changed")
+                } else {
+                    logger.debug("translations remain unchanged")
+                }
+            } catch {
+                switch error.last {
+                case let PhraseNetworkError.connectionError(underlyingError) as PhraseNetworkError:
+                    logger.error("Connection Error: \(underlyingError.localizedDescription)")
+                case let PhraseNetworkError.responseStatusInvalid(code, message) as PhraseNetworkError:
+                    logger.error("Response Status Invalid: \(code) \(message)")
+                default:
+                    logger.error("A error occurred while updating the translations \(error.last?.localizedDescription ?? "")")
                 }
             }
-        } catch PhraseSetupError.notInitialized {
-            logger.error("Setup method has not been called yet.")
-        } catch PhraseSetupError.missingDistributionID {
-            logger.error("An empty distribution ID has been given.")
-        } catch PhraseSetupError.missingEnvironmentSecret {
-            logger.error("An empty environment secret has been given.")
-        } catch PhraseSetupError.appVersionNotSemantic(underlyingError: let error) {
-            logger.error("The App version is not semantic. \(error.localizedDescription)")
-        } catch {
-            logger.error("unexpected error")
         }
     }
 
