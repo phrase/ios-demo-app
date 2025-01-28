@@ -434,7 +434,7 @@
 			repositoryURL = "https://github.com/phrase/ios-sdk";
 			requirement = {
 				kind = exactVersion;
-				version = 4.4.3;
+				version = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
