@@ -61,9 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             do throws(PhraseUpdateError) {
                 let updated = try await Phrase.shared.updateTranslation()
                 if updated {
-                    // If a translation was used before the update was completed,
-                    // the translations will only be available after restarting the app,
-                    // otherwise the new translations can be used immediately.
+                    // Activate latest updates
+                    Phrase.shared.applyPendingUpdates()
+                    // re-render your UI if needed
                     logger.info("translations changed")
                 } else {
                     logger.debug("translations remain unchanged")
